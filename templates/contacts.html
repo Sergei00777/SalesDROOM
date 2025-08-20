@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Контакты - Yes Auto{% endblock %}
+
+{% block content %}
+<section class="contacts-hero">
+    <div class="container">
+        <h1>Контакты</h1>
+    </div>
+</section>
+
+<section class="contacts-content">
+    <div class="container">
+        <div class="contacts-grid">
+            <div class="contact-info">
+                <h2>Адрес</h2>
+                <p>664009 Российская Федерация, г. Иркутск, ул. Ширямова, 32</p>
+
+                <h2>Режим работы</h2>
+                <p>Ежедневно: 9:00-20:00</p>
+
+                <h2>Продажи</h2>
+                <p>Ежедневно: 9:00-20:00</p>
+                <p>Телефон: <a href="tel:+73952550515">+7 (3952) 550-515</a></p>
+                <p>E-mail: <a href="mailto:hello@yes-auto.ru">hello@yes-auto.ru</a></p>
+
+                <div class="social-links">
+                    <h2>Мы в соцсетях</h2>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><img src="{{ url_for('static', filename='images/social/tg.png') }}" alt="Telegram"></a>
+                        <a href="#" class="social-icon"><img src="{{ url_for('static', filename='images/social/wa.png') }}" alt="WhatsApp"></a>
+                        <a href="#" class="social-icon"><img src="{{ url_for('static', filename='images/social/ig.png') }}" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <h2>Как нас найти</h2>
+                <!-- Здесь будет карта с 2ГИС -->
+                <img src="{{ url_for('static', filename='images/contacts_map.png') }}" alt="Карта расположения Yes Auto" class="map-image">
+            </div>
+        </div>
+
+        <div class="specialists-section">
+            <h2>Свяжитесь со специалистом</h2>
+            <div class="specialists-grid">
+                <div class="specialist-card">
+                    <div class="specialist-photo">
+                        <img src="{{ url_for('static', filename='images/specialists/anna.jpg') }}" alt="Анна Шигобаева">
+                    </div>
+                    <h3>Анна Шигобаева</h3>
+                    <p class="specialist-position">Старший менеджер отдела продаж</p>
+                    <p class="specialist-email">sales@yes-auto.ru</p>
+                    <p class="specialist-phone">+7 (983) 440-99-24</p>
+                    <a href="tel:+79834409924" class="btn-call">Позвонить</a>
+                </div>
+
+                <div class="specialist-card">
+                    <div class="specialist-photo">
+                        <img src="{{ url_for('static', filename='images/specialists/vadim.jpg') }}" alt="Вадим Никитин">
+                    </div>
+                    <h3>Вадим Никитин</h3>
+                    <p class="specialist-position">Менеджер отдела продаж</p>
+                    <p class="specialist-email">sales@yes-auto.ru</p>
+                    <p class="specialist-phone">+7 (902) 519-07-02</p>
+                    <a href="tel:+79025190702" class="btn-call">Позвонить</a>
+                </div>
+
+                <div class="specialist-card">
+                    <div class="specialist-photo">
+                        <img src="{{ url_for('static', filename='images/specialists/andrey.jpg') }}" alt="Андрей Петров">
+                    </div>
+                    <h3>Андрей Петров</h3>
+                    <p class="specialist-position">Менеджер отдела продаж</p>
+                    <p class="specialist-email">sales@yes-auto.ru</p>
+                    <p class="specialist-phone">+7 (914) 002-85-69</p>
+                    <a href="tel:+79140028569" class="btn-call">Позвонить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contacts.css') }}">
+{% endblock %}

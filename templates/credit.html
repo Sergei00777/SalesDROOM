@@ -1,0 +1,201 @@
+<!-- templates/credit.html -->
+{% extends "base.html" %}
+
+{% block title %}DriveMax — Автокредитование на выгодных условиях{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                <h1 class="display-5 fw-bold text-primary mb-3">
+
+                    <i class="bi bi-credit-card-2-front"></i> Автокредит
+                </h1>
+                <p class="lead">Рассчитайте ежемесячный платеж и получите одобрение онлайн за 30 минут</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Калькулятор -->
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-primary text-white py-3">
+                        <h4 class="mb-0"><i class="bi bi-calculator me-2"></i>Кредитный калькулятор</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="creditForm">
+                            <div class="mb-4">
+                                <label for="price" class="form-label fw-semibold">Стоимость автомобиля, ₽</label>
+                                <input type="number" class="form-control form-control-lg" id="price"
+                                       value="{{ default_price }}" min="100000" max="10000000" step="10000">
+                                <div class="form-range">
+                                    <input type="range" class="form-range" min="100000" max="10000000"
+                                           step="10000" id="priceRange" value="{{ default_price }}">
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="initialPayment" class="form-label fw-semibold">Первоначальный взнос, %</label>
+                                <input type="number" class="form-control form-control-lg" id="initialPayment"
+                                       value="{{ default_initial_percent }}" min="0" max="90" step="5">
+                                <div class="form-range">
+                                    <input type="range" class="form-range" min="0" max="90"
+                                           step="5" id="initialPaymentRange" value="{{ default_initial_percent }}">
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="period" class="form-label fw-semibold">Срок кредита, месяцев</label>
+                                <input type="number" class="form-control form-control-lg" id="period"
+                                       value="{{ default_period }}" min="12" max="84" step="6">
+                                <div class="form-range">
+                                    <input type="range" class="form-range" min="12" max="84"
+                                           step="6" id="periodRange" value="{{ default_period }}">
+                                </div>
+                            </div>
+
+                            <div class="alert alert-info">
+                                <div class="d-flex justify-content-between">
+                                    <span>Ежемесячный платеж:</span>
+                                    <span class="fw-bold fs-5" id="monthlyPayment">{% if monthly_payment %}{{ monthly_payment|int }} ₽{% else %}—{% endif %}</span>
+                                </div>
+                                <small class="text-muted">* Расчет приблизительный. Точную сумму рассчитает менеджер</small>
+                            </div>
+
+                            <button type="button" class="btn btn-primary btn-lg w-100" onclick="calculatePayment()">
+                                <i class="bi bi-calculator me-2"></i>Рассчитать платеж
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- templates/credit.html -->
+<!-- ... остальной код ... -->
+
+<!-- Контакты кредитного менеджера -->
+<div class="col-lg-6" data-aos="fade-left">
+    <div class="card shadow-lg border-0 h-100">
+        <div class="card-header bg-success text-white py-3">
+            <h4 class="mb-0"><i class="bi bi-person-badge me-2"></i>Кредитный менеджер</h4>
+        </div>
+        <div class="card-body p-4 d-flex flex-column">
+            <div class="text-center mb-4">
+                <!-- Исправляем отображение фото -->
+                <div class="manager-photo-container mb-3">
+                    <img src="{{ url_for('static', filename='images/credit-manager.jpg') }}"
+                         alt="Петрусенко Сергей - Кредитный менеджер"
+                         class="manager-photo rounded-circle">
+                </div>
+                <h3>Петрусенко Сергей</h3>
+                <p class="text-muted">Старший кредитный специалист</p>
+            </div>
+
+            <div class="mb-4">
+                <h5><i class="bi bi-award text-warning me-2"></i>Почему выбирают нас:</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Одобрение за 30 минут</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Ставка от 5.9% годовых</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Работаем со всеми банками</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Даже с плохой кредитной историей</li>
+                </ul>
+            </div>
+
+            <div class="mt-auto">
+                <div class="d-grid gap-2">
+                    <a href="tel:+78005553535" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-telephone-fill me-2"></i>+7 (800) 555-35-35
+                    </a>
+                    <a href="https://t.me/drivemax_credit" target="_blank" class="btn btn-outline-info btn-lg">
+                        <i class="bi bi-telegram me-2"></i>Telegram: @drivemax_credit
+                    </a>
+                    <a href="https://wa.me/78005553535" target="_blank" class="btn btn-outline-success btn-lg">
+                        <i class="bi bi-whatsapp me-2"></i>WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <!-- Дополнительная информация -->
+        <div class="row mt-5">
+            <div class="col-12" data-aos="fade-up">
+                <div class="card bg-light border-0">
+                    <div class="card-body p-4">
+                        <h4 class="text-center mb-4"><i class="bi bi-info-circle me-2"></i>Как получить автокредит</h4>
+                        <div class="row">
+                            <div class="col-md-3 text-center mb-3">
+                                <div class="bg-white rounded-circle p-3 mx-auto mb-2" style="width: 80px; height: 80px;">
+                                    <i class="bi bi-card-checklist text-primary" style="font-size: 2rem;"></i>
+                                </div>
+                                <h6>1. Заявка</h6>
+                                <small>Оставьте заявку онлайн или по телефону</small>
+                            </div>
+                            <div class="col-md-3 text-center mb-3">
+                                <div class="bg-white rounded-circle p-3 mx-auto mb-2" style="width: 80px; height: 80px;">
+                                    <i class="bi bi-file-earmark-text text-primary" style="font-size: 2rem;"></i>
+                                </div>
+                                <h6>2. Документы</h6>
+                                <small>Подготовьте паспорт и права</small>
+                            </div>
+                            <div class="col-md-3 text-center mb-3">
+                                <div class="bg-white rounded-circle p-3 mx-auto mb-2" style="width: 80px; height: 80px;">
+                                    <i class="bi bi-check-circle text-success" style="font-size: 2rem;"></i>
+                                </div>
+                                <h6>3. Одобрение</h6>
+                                <small>Получите решение за 30 минут</small>
+                            </div>
+                            <div class="col-md-3 text-center mb-3">
+                                <div class="bg-white rounded-circle p-3 mx-auto mb-2" style="width: 80px; height: 80px;">
+                                    <i class="bi bi-car-front text-primary" style="font-size: 2rem;"></i>
+                                </div>
+                                <h6>4. Получение</h6>
+                                <small>Заберите свой автомобиль</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function calculatePayment() {
+    const price = parseInt(document.getElementById('price').value);
+    const initialPercent = parseInt(document.getElementById('initialPayment').value);
+    const period = parseInt(document.getElementById('period').value);
+
+    // Упрощенный расчет (можно заменить на более точную формулу)
+    const loanAmount = price * (1 - initialPercent/100);
+    const monthlyRate = 8.5 / 12 / 100; // 8.5% годовых
+    const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, period)) / (Math.pow(1 + monthlyRate, period) - 1);
+
+    document.getElementById('monthlyPayment').textContent = Math.round(monthlyPayment).toLocaleString('ru-RU') + ' ₽';
+}
+
+// Синхронизация полей ввода и ползунков
+document.addEventListener('DOMContentLoaded', function() {
+    const syncInputs = (inputId, rangeId) => {
+        const input = document.getElementById(inputId);
+        const range = document.getElementById(rangeId);
+
+        input.addEventListener('input', () => range.value = input.value);
+        range.addEventListener('input', () => input.value = range.value);
+    };
+
+    syncInputs('price', 'priceRange');
+    syncInputs('initialPayment', 'initialPaymentRange');
+    syncInputs('period', 'periodRange');
+
+    // Первоначальный расчет
+    calculatePayment();
+});
+</script>
+{% endblock %}

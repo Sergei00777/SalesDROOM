@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}О компании - Yes Auto{% endblock %}
+
+{% block content %}
+<section class="about-hero">
+    <div class="container">
+        <h1>О компании</h1>
+        <div class="about-stats">
+            <div class="stat-item">
+                <span class="stat-number">12</span>
+                <span class="stat-text">ЛЕТ НА РЫНКЕ</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">30 000+</span>
+                <span class="stat-text">СЧАСТЛИВЫХ КЛИЕНТОВ</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-content">
+    <div class="container">
+        <div class="about-section">
+            <h2>Автомобили с пробегом от официальных дилеров</h2>
+            <p>Yes Auto — это профессиональный автопортал, специализирующийся на продаже автомобилей с пробегом от официальных дилеров. Мы предлагаем только проверенные автомобили с полной историей обслуживания и гарантией юридической чистоты.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>ХОТИТЕ КУПИТЬ АВТОМОБИЛЬ?</h3>
+                <ul>
+                    <li>200+ авто с пробегом наличии</li>
+                    <li>Техническая гарантия и сервисная книжка на все автомобили</li>
+                    <li>Юридическая чистота и безопасность сделки. Купили авто в Yes Auto, и возникли проблемы с постановкой на учет? Вернем деньги</li>
+                    <li>Замена масла на каждом авто перед продажей</li>
+                    <li>Выгодный сервис для клиентов</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>ОФОРМИТЬ АВТОКРЕДИТ?</h3>
+                <ul>
+                    <li>Получите решение по кредиту сразу от 10 банков</li>
+                    <li>Без скрытых платежей и процентов</li>
+                    <li>Первоначальный взнос от 0%</li>
+                    <li>Рассмотрение заявки за 60 минут</li>
+                    <li>Одобрение 95% заявок</li>
+                    <li>Оформление по 2 документам, без справок о доходах</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>ХОТИТЕ ПРОДАТЬ СВОЙ АВТОМОБИЛЬ?</h3>
+                <ul>
+                    <li>Выкупаем более 2000 авто в год</li>
+                    <li>Оценка авто без ожидания. Выкупим за 1 час</li>
+                    <li>Обменяем ваш автомобиль на любой из нашего парка («ключ в ключ» или с доплатой в любую сторону)</li>
+                </ul>
+                <div class="commission-info">
+                    <h4>НЕТ ВРЕМЕНИ ПРОДАВАТЬ?</h4>
+                    <p>Заберем ваш авто на комиссию</p>
+                    <ul>
+                        <li>Охраняемая парковка</li>
+                        <li>Рекламная поддержка</li>
+                        <li>Вы назначаете цену при продаже</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="location-section">
+            <h2>Мы находимся</h2>
+            <div class="map-container">
+                <!-- Здесь будет карта с 2ГИС -->
+                <img src="{{ url_for('static', filename='images/location_map.png') }}" alt="Карта расположения Yes Auto" class="map-image">
+                <p class="address">г. Москва, ул. Автодилерская, д. 12</p>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <h2>Контакты</h2>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span class="contact-label">Телефон:</span>
+                    <span class="contact-value">+7 (495) 123-45-67</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Email:</span>
+                    <span class="contact-value">info@yesauto.ru</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Часы работы:</span>
+                    <span class="contact-value">Ежедневно с 9:00 до 21:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
