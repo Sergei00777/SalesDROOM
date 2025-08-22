@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container" style="padding-top: 80px;">
+    <div class="car-detail">
+
+
+        <div class="car-images">
+            <img src="{{ car.image_path or '/static/images/cars/default.jpg' }}"
+                 alt="{{ car.brand }} {{ car.model }}" class="main-image">
+        </div>
+
+        <div class="car-info">
+            <h1>{{ car.brand }} {{ car.model }} {{ car.year }}</h1>
+            <p class="price">{{ car.price }} ₽</p>
+            <p class="monthly-payment">от {{ (car.price / 60)|round|int }} ₽ / мес</p>
+
+            <div class="car-specs">
+                <div class="spec-item">
+                    <span class="spec-label">Год выпуска:</span>
+                    <span class="spec-value">{{ car.year }} г.</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Пробег:</span>
+                    <span class="spec-value">{{ car.mileage }} км</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Кузов:</span>
+                    <span class="spec-value">{{ car.body_type }}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Двигатель:</span>
+                    <span class="spec-value">{{ car.engine_volume }}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Мощность:</span>
+                    <span class="spec-value">{{ car.power }}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">КПП:</span>
+                    <span class="spec-value">{{ car.transmission }}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Привод:</span>
+                    <span class="spec-value">{{ car.drive }}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Цвет:</span>
+                    <span class="spec-value">{{ car.color }}</span>
+                </div>
+                {% if car.vin %}
+                <div class="spec-item">
+                    <span class="spec-label">VIN:</span>
+                    <span class="spec-value">{{ car.vin }}</span>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="car-actions">
+                <button class="btn btn-primary btn-large">ПОЗВОНИТЬ</button>
+                <a href="{{ url_for('credit.credit_calculator') }}" class="btn btn-secondary">РАССЧИТАТЬ КРЕДИТ</a>
+
+                {% if session.admin_logged_in %}
+                <a href="{{ url_for('cars.edit_car', id=car.id) }}" class="btn btn-warning">Редактировать</a>
+                <a href="{{ url_for('cars.delete_car', id=car.id) }}" class="btn btn-danger"
+                   onclick="return confirm('Удалить автомобиль?')">Удалить</a>
+                {% endif %}
+            </div>
+
+            {% if car.description %}
+            <div class="car-description">
+                <h3>Описание</h3>
+                <p>{{ car.description }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+.car-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.car-images img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.price {
+    font-size: 2em;
+    font-weight: bold;
+    color: #e74c3c;
+    margin: 10px 0;
+}
+
+.monthly-payment {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.car-specs {
+    margin: 20px 0;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.spec-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.spec-value {
+    color: #666;
+}
+
+.car-actions {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 1.2em;
+}
+
+.car-description {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .car-detail {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

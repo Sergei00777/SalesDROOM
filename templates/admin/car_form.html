@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>{% if car %}Редактировать автомобиль{% else %}Добавить автомобиль{% endif %}</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" enctype="multipart/form-data" class="car-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="brand">Марка автомобиля *</label>
+                <input type="text" id="brand" name="brand" value="{{ car.brand if car }}" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="model">Модель автомобиля *</label>
+                <input type="text" id="model" name="model" value="{{ car.model if car }}" required class="form-control">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="year">Год выпуска *</label>
+                <input type="number" id="year" name="year" value="{{ car.year if car }}" min="1990" max="2025" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="price">Цена (₽) *</label>
+                <input type="number" id="price" name="price" value="{{ car.price if car }}" required class="form-control">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="mileage">Пробег (км) *</label>
+                <input type="number" id="mileage" name="mileage" value="{{ car.mileage if car }}" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="body_type">Кузов *</label>
+                <select id="body_type" name="body_type" required class="form-control">
+                    <option value="">Выберите тип кузова</option>
+                    <option value="Седан" {% if car and car.body_type == 'Седан' %}selected{% endif %}>Седан</option>
+                    <option value="Хэтчбек" {% if car and car.body_type == 'Хэтчбек' %}selected{% endif %}>Хэтчбек</option>
+                    <option value="Универсал" {% if car and car.body_type == 'Универсал' %}selected{% endif %}>Универсал</option>
+                    <option value="Внедорожник" {% if car and car.body_type == 'Внедорожник' %}selected{% endif %}>Внедорожник</option>
+                    <option value="Кроссовер" {% if car and car.body_type == 'Кроссовер' %}selected{% endif %}>Кроссовер</option>
+                    <option value="Купе" {% if car and car.body_type == 'Купе' %}selected{% endif %}>Купе</option>
+                    <option value="Минивэн" {% if car and car.body_type == 'Минивэн' %}selected{% endif %}>Минивэн</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="steering">Руль *</label>
+                <select id="steering" name="steering" required class="form-control">
+                    <option value="">Выберите положение руля</option>
+                    <option value="Левый" {% if car and car.steering == 'Левый' %}selected{% endif %}>Левый</option>
+                    <option value="Правый" {% if car and car.steering == 'Правый' %}selected{% endif %}>Правый</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="engine_volume">Двигатель (см³) *</label>
+                <input type="text" id="engine_volume" name="engine_volume" value="{{ car.engine_volume if car }}" required class="form-control" placeholder="1598">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="fuel_type">Тип топлива *</label>
+                <select id="fuel_type" name="fuel_type" required class="form-control">
+                    <option value="">Выберите тип топлива</option>
+                    <option value="Бензин" {% if car and car.fuel_type == 'Бензин' %}selected{% endif %}>Бензин</option>
+                    <option value="Дизель" {% if car and car.fuel_type == 'Дизель' %}selected{% endif %}>Дизель</option>
+                    <option value="Гибрид" {% if car and car.fuel_type == 'Гибрид' %}selected{% endif %}>Гибрид</option>
+                    <option value="Электро" {% if car and car.fuel_type == 'Электро' %}selected{% endif %}>Электро</option>
+                    <option value="Газ" {% if car and car.fuel_type == 'Газ' %}selected{% endif %}>Газ</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="power">Мощность (л.с.) *</label>
+                <input type="text" id="power" name="power" value="{{ car.power if car }}" required class="form-control" placeholder="102">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="transmission">КПП *</label>
+                <select id="transmission" name="transmission" required class="form-control">
+                    <option value="">Выберите КПП</option>
+                    <option value="Механическая" {% if car and car.transmission == 'Механическая' %}selected{% endif %}>Механическая</option>
+                    <option value="Автоматическая" {% if car and car.transmission == 'Автоматическая' %}selected{% endif %}>Автоматическая</option>
+                    <option value="Роботизированная" {% if car and car.transmission == 'Роботизированная' %}selected{% endif %}>Роботизированная</option>
+                    <option value="Вариатор" {% if car and car.transmission == 'Вариатор' %}selected{% endif %}>Вариатор</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="drive">Привод *</label>
+                <select id="drive" name="drive" required class="form-control">
+                    <option value="">Выберите привод</option>
+                    <option value="Передний" {% if car and car.drive == 'Передний' %}selected{% endif %}>Передний</option>
+                    <option value="Задний" {% if car and car.drive == 'Задний' %}selected{% endif %}>Задний</option>
+                    <option value="Полный" {% if car and car.drive == 'Полный' %}selected{% endif %}>Полный</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="color">Цвет *</label>
+                <input type="text" id="color" name="color" value="{{ car.color if car }}" required class="form-control" placeholder="серебристый">
+            </div>
+
+            <div class="form-group">
+                <label for="vin">VIN номер</label>
+                <input type="text" id="vin" name="vin" value="{{ car.vin if car }}" class="form-control" placeholder="Z8NALL1058****42">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Фото автомобиля (до 30 фото)</label>
+            <input type="file" id="image" name="image" multiple accept="image/*" class="form-control">
+            <small class="form-text">Можно выбрать несколько файлов</small>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Описание</label>
+            <textarea id="description" name="description" rows="4" class="form-control">{{ car.description if car }}</textarea>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">{% if car %}Сохранить изменения{% else %}Добавить автомобиль{% endif %}</button>
+            <a href="{{ url_for('cars.cars_list') }}" class="btn btn-secondary">Отмена</a>
+        </div>
+    </form>
+</div>
+
+<style>
+.car-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.form-text {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}
