@@ -68,6 +68,7 @@ def init_db():
             db.session.commit()
         print("База данных инициализирована, администратор создан")
 
+
 # Инициализируем базу данных при запуске приложения
 with app.app_context():
     init_db()
@@ -75,4 +76,4 @@ with app.app_context():
 if __name__ == '__main__':
     print(f"Database URI: {app.config.get('SQLALCHEMY_DATABASE_URI')}")
     print(f"Instance path: {app.instance_path}")
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
