@@ -46,6 +46,15 @@ def sell_exchange():
 def sell_commission():
     return render_template('sell/sell_commission.html')
 
+# В файле app.py добавляем новые маршруты
+@app.route('/sell/parts')
+def sell_parts():
+    return render_template('sell/sell_parts.html')
+
+@app.route('/sell/import')
+def sell_import():
+    return render_template('sell/sell_import.html')
+
 # Функция для инициализации базы данных
 def init_db():
     with app.app_context():

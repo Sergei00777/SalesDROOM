@@ -1,0 +1,344 @@
+<!-- templates/sell/sell_buyout.html -->
+{% extends "base.html" %}
+
+{% block title %}Срочный выкуп автомобилей - ProAuto{% endblock %}
+
+{% block content %}
+<section class="sell-hero" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/static/images/sell/buyout-hero.jpg');">
+    <div class="container">
+        <h1>Срочный выкуп автомобилей</h1>
+        <p class="lead">Получите деньги за ваш автомобиль в день обращения</p>
+    </div>
+</section>
+
+<section class="sell-content py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="mb-4">Почему выбирают наш выкуп?</h2>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="bi bi-cash-coin"></i>
+                        <h4>Деньги сразу</h4>
+                        <p>Наличные или перевод на карту в течение 1 часа</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="bi bi-clock"></i>
+                        <h4>Быстрое оформление</h4>
+                        <p>Весь процесс занимает не более 2 часов</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="bi bi-shield-check"></i>
+                        <h4>Безопасная сделка</h4>
+                        <p>Юридическое сопровождение и полная прозрачность</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="bi bi-car-front"></i>
+                        <h4>Любые автомобили</h4>
+                        <p>Выкупаем иномарки, отечественные авто, с пробегом и после ДТП</p>
+                    </div>
+                </div>
+
+                <div class="process-steps mt-5">
+                    <h3>Как происходит выкуп?</h3>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <h5>Заявка и осмотр</h5>
+                            <p>Свяжитесь с нами через мессенджер, мы приезжаем на осмотр в удобное для вас время</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <h5>Оценка</h5>
+                            <p>Проводим диагностику и называем точную стоимость</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <h5>Оформление</h5>
+                            <p>Подписываем договор и передаем деньги</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="manager-card">
+                    <h4>Ваш менеджер по выкупу</h4>
+                    <div class="manager-photo">
+                        <img src="/static/images/manager.jpg" alt="Менеджер Иванов Иван Иванович" class="img-fluid rounded-circle">
+                    </div>
+                    <h5 class="mt-3">Иванов Иван Иванович</h5>
+                    <p class="text-muted">Старший менеджер по срочному выкупу</p>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="bi bi-telephone"></i>
+                            <span>+7 (495) 123-45-67</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-envelope"></i>
+                            <span>i.ivanov@drivemax.ru</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <span>г. Москва, ул. Автозаводская, д. 25</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-clock"></i>
+                            <span>Пн-Пт: 9:00-20:00, Сб-Вс: 10:00-18:00</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h6>Как добраться:</h6>
+                        <p class="small">Станция метро "Автозаводская", 5 минут пешком. Автосалон находится рядом с ТЦ "Москва".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Форма заявки -->
+        <div class="request-form mt-5" id="contact-form">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Свяжитесь с нами для срочного выкупа</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Контактная информация</h5>
+                            <div class="contact-info">
+                                <div class="contact-item mb-3">
+                                    <i class="bi bi-telephone fs-5 text-primary"></i>
+                                    <span class="ms-2 fs-6">+7 (495) 123-45-67</span>
+                                </div>
+                                <div class="contact-item mb-3">
+                                    <i class="bi bi-geo-alt fs-5 text-primary"></i>
+                                    <span class="ms-2 fs-6">г. Красноярск, ул. Тотмина, д. 26/2</span>
+                                </div>
+                                <div class="contact-item mb-3">
+                                    <i class="bi bi-clock fs-5 text-primary"></i>
+                                    <span class="ms-2 fs-6">Пн-Пт: 9:00-20:00, Сб-Вс: 10:00-18:00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Мессенджеры</h5>
+                            <p class="text-muted">Выберите удобный способ связи</p>
+                            <div class="messengers-grid">
+                                <a href="https://t.me/proauto_buyout" class="btn btn-telegram mb-2 w-100" target="_blank">
+                                    <i class="bi bi-send"></i> Написать в Telegram
+                                </a>
+                                <a href="https://wa.me/74951234567" class="btn btn-whatsapp mb-2 w-100" target="_blank">
+                                    <i class="bi bi-whatsapp"></i> Написать в WhatsApp
+                                </a>
+                                <a href="https://vk.com/im?sel=-123456789" class="btn btn-vk mb-2 w-100" target="_blank">
+                                    <i class="bi bi-chat"></i> Написать в VK Мессенджер
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.sell-hero {
+    padding: 100px 0;
+    color: white;
+    text-align: center;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: #f8f9fa;
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: #0d6efd;
+    margin-bottom: 15px;
+}
+
+.process-steps {
+    margin-top: 40px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.step-number {
+    background: #0d6efd;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.manager-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 20px;
+    text-align: center;
+}
+
+.manager-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border: 4px solid #f0f0f0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.contact-info {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.contact-item i {
+    width: 24px;
+    color: #0d6efd;
+    margin-right: 10px;
+}
+
+.request-form {
+    max-width: 900px;
+    margin: 30px auto 0;
+}
+
+.btn-telegram {
+    background-color: #0088cc;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-telegram:hover {
+    background-color: #006da0;
+    color: white;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1da851;
+    color: white;
+}
+
+.btn-vk {
+    background-color: #0077FF;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-vk:hover {
+    background-color: #0055cc;
+    color: white;
+}
+
+.messengers-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-info .contact-item i {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .step {
+        flex-direction: column;
+    }
+
+    .step-number {
+        margin-bottom: 10px;
+    }
+
+    .manager-card {
+        position: static;
+        margin-top: 30px;
+    }
+
+    .messengers-grid .btn {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
+</style>
+{% endblock %}

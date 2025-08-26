@@ -1,13 +1,13 @@
-<!-- templates/sell/sell_exchange.html -->
+<!-- templates/sell/sell_parts.html -->
 {% extends "base.html" %}
 
-{% block title %}Обмен автомобилей - ProAuto{% endblock %}
+{% block title %}Заказ автозапчастей - ProAuto{% endblock %}
 
 {% block content %}
-<section class="sell-hero" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/static/images/sell/buyout-hero.jpg');">
+<section class="sell-hero" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/static/images/sell/parts-hero.jpg');">
     <div class="container">
-        <h1>Обмен автомобилей</h1>
-        <p class="lead">Поменяйте свой автомобиль на новый без лишних хлопот</p>
+        <h1>Заказ автозапчастей</h1>
+        <p class="lead">Оригинальные и аналогичные запчасти для любого автомобиля</p>
     </div>
 </section>
 
@@ -15,134 +15,108 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <h2 class="mb-4">Программа Trade-In</h2>
+                <h2 class="mb-4">Почему выбирают нас для заказа запчастей?</h2>
 
                 <div class="features-grid">
                     <div class="feature-card">
-                        <i class="bi bi-arrow-left-right"></i>
-                        <h4>Обмен с доплатой</h4>
-                        <p>Ваш авто + разница в стоимости = новый автомобиль</p>
+                        <i class="bi bi-search"></i>
+                        <h4>Поиск по VIN</h4>
+                        <p>Точный подбор запчастей по VIN-коду вашего автомобиля</p>
                     </div>
 
                     <div class="feature-card">
-                        <i class="bi bi-arrow-right"></i>
-                        <h4>Обмен без доплаты</h4>
-                        <p>Прямой обмен на автомобиль equivalentной стоимости</p>
+                        <i class="bi bi-truck"></i>
+                        <h4>Быстрая доставка</h4>
+                        <p>Доставка от 1 дня по всей России</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="bi bi-shield-check"></i>
+                        <h4>Гарантия качества</h4>
+                        <p>Только проверенные производители и поставщики</p>
                     </div>
 
                     <div class="feature-card">
                         <i class="bi bi-currency-exchange"></i>
-                        <h4>Выгодные условия</h4>
-                        <p>Специальные цены и бонусы по программе обмена</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <i class="bi bi-clock-history"></i>
-                        <h4>Экономия времени</h4>
-                        <p>Весь процесс в одном месте за 1 день</p>
+                        <h4>Лучшие цены</h4>
+                        <p>Стоимость ниже рыночной на 10-15%</p>
                     </div>
                 </div>
 
                 <div class="process-steps mt-5">
-                    <h3>Как работает обмен?</h3>
+                    <h3>Как заказать запчасти?</h3>
                     <div class="step">
                         <span class="step-number">1</span>
                         <div class="step-content">
-                            <h5>Оценка вашего авто</h5>
-                            <p>Бесплатная диагностика и точная оценка стоимости</p>
+                            <h5>Заявка</h5>
+                            <p>Свяжитесь с нами через удобный мессенджер</p>
                         </div>
                     </div>
 
                     <div class="step">
                         <span class="step-number">2</span>
                         <div class="step-content">
-                            <h5>Выбор нового авто</h5>
-                            <p>Подбираем автомобиль из нашего каталога</p>
+                            <h5>Подбор</h5>
+                            <p>Наш специалист подберет оптимальные варианты</p>
                         </div>
                     </div>
 
                     <div class="step">
                         <span class="step-number">3</span>
                         <div class="step-content">
-                            <h5>Оформление сделки</h5>
-                            <p>Подписываем договор мены и все документы</p>
+                            <h5>Согласование</h5>
+                            <p>Согласуем с вами стоимость и сроки поставки</p>
                         </div>
                     </div>
 
                     <div class="step">
                         <span class="step-number">4</span>
                         <div class="step-content">
-                            <h5>Получение ключей</h5>
-                            <p>Забираете новый автомобиль и передаете свой</p>
+                            <h5>Доставка и установка</h5>
+                            <p>Доставим и установим в нашем сервисе</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="benefits-section mt-5">
-                    <h3>Преимущества обмена</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="benefit-item">
-                                <i class="bi bi-check-circle text-success"></i>
-                                <span>Не нужно искать покупателя</span>
-                            </div>
-                            <div class="benefit-item">
-                                <i class="bi bi-check-circle text-success"></i>
-                                <span>Экономия на рекламе</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="benefit-item">
-                                <i class="bi bi-check-circle text-success"></i>
-                                <span>Мгновенное получение нового авто</span>
-                            </div>
-                            <div class="benefit-item">
-                                <i class="bi bi-check-circle text-success"></i>
-                                <span>Юридическая чистота сделки</span>
-                            </div>
-                        </div>
+                <div class="brands-section mt-5">
+                    <h3>Работаем с ведущими производителями</h3>
+                    <div class="brands-grid">
+                        <div class="brand-item">Bosch</div>
+                        <div class="brand-item">Mann-Filter</div>
+                        <div class="brand-item">Febi Bilstein</div>
+                        <div class="brand-item">Sachs</div>
+                        <div class="brand-item">NGK</div>
+                        <div class="brand-item">ATE</div>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-4">
                 <div class="manager-card">
-                    <h4>Ваш менеджер по обмену</h4>
+                    <h4>Ваш менеджер по запчастям</h4>
                     <div class="manager-photo">
-                        <img src="/static/images/exchange-manager.jpg" alt="Менеджер по обмену" class="img-fluid rounded-circle">
+                        <img src="/static/images/parts-manager.jpg" alt="Менеджер по запчастям" class="img-fluid rounded-circle">
                     </div>
-                    <h5 class="mt-3">Сидоров Дмитрий</h5>
-                    <p class="text-muted">Специалист по программе Trade-In</p>
+                    <h5 class="mt-3">Петров Алексей</h5>
+                    <p class="text-muted">Специалист по автозапчастям</p>
 
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="bi bi-telephone"></i>
-                            <span>+7 (495) 999-88-77</span>
+                            <span>+7 (495) 765-43-21</span>
                         </div>
                         <div class="contact-item">
                             <i class="bi bi-envelope"></i>
-                            <span>exchange@proauto.ru</span>
+                            <span>parts@proauto.ru</span>
                         </div>
                         <div class="contact-item">
                             <i class="bi bi-clock"></i>
-                            <span>Пн-Пт: 9:00-20:00, Сб-Вс: 10:00-18:00</span>
+                            <span>Пн-Пт: 8:00-20:00, Сб-Вс: 9:00-18:00</span>
                         </div>
                     </div>
 
                     <div class="mt-4">
-                        <a href="#contact-form" class="btn btn-primary w-100">Консультация</a>
-                    </div>
-                </div>
-
-                <div class="info-card mt-4">
-                    <h5>Доступные автомобили</h5>
-                    <div class="brands-list">
-                        <div class="brand-item">Toyota</div>
-                        <div class="brand-item">Honda</div>
-                        <div class="brand-item">BMW</div>
-                        <div class="brand-item">Mercedes</div>
-                        <div class="brand-item">Hyundai</div>
-                        <div class="brand-item">Kia</div>
+                        <a href="#contact-form" class="btn btn-primary w-100">Связаться с менеджером</a>
                     </div>
                 </div>
             </div>
@@ -152,7 +126,7 @@
         <div class="request-form mt-5" id="contact-form">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0">Свяжитесь с нами для обмена автомобиля</h4>
+                    <h4 class="mb-0">Свяжитесь с нами для заказа запчастей</h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -161,7 +135,7 @@
                             <div class="contact-info">
                                 <div class="contact-item mb-3">
                                     <i class="bi bi-telephone fs-5 text-primary"></i>
-                                    <span class="ms-2 fs-6">+7 (495) 999-88-77</span>
+                                    <span class="ms-2 fs-6">+7 (495) 765-43-21</span>
                                 </div>
                                 <div class="contact-item mb-3">
                                     <i class="bi bi-geo-alt fs-5 text-primary"></i>
@@ -169,7 +143,7 @@
                                 </div>
                                 <div class="contact-item mb-3">
                                     <i class="bi bi-clock fs-5 text-primary"></i>
-                                    <span class="ms-2 fs-6">Пн-Пт: 9:00-20:00, Сб-Вс: 10:00-18:00</span>
+                                    <span class="ms-2 fs-6">Пн-Пт: 8:00-20:00, Сб-Вс: 9:00-18:00</span>
                                 </div>
                             </div>
                         </div>
@@ -177,10 +151,10 @@
                             <h5>Мессенджеры</h5>
                             <p class="text-muted">Выберите удобный способ связи</p>
                             <div class="messengers-grid">
-                                <a href="https://t.me/proauto_exchange" class="btn btn-telegram mb-2 w-100" target="_blank">
+                                <a href="https://t.me/proauto_parts" class="btn btn-telegram mb-2 w-100" target="_blank">
                                     <i class="bi bi-send"></i> Написать в Telegram
                                 </a>
-                                <a href="https://wa.me/74959998877" class="btn btn-whatsapp mb-2 w-100" target="_blank">
+                                <a href="https://wa.me/74957654321" class="btn btn-whatsapp mb-2 w-100" target="_blank">
                                     <i class="bi bi-whatsapp"></i> Написать в WhatsApp
                                 </a>
                                 <a href="https://vk.com/im?sel=-123456789" class="btn btn-vk mb-2 w-100" target="_blank">
@@ -268,28 +242,18 @@
     margin-bottom: 5px;
 }
 
-.benefit-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.benefit-item i {
-    margin-right: 10px;
-    font-size: 1.2rem;
-}
-
-.brands-list {
+.brands-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .brand-item {
     background: #f8f9fa;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: 600;
     border: 1px solid #e9ecef;
 }
@@ -323,13 +287,6 @@
 .contact-item i {
     margin-right: 10px;
     color: #0d6efd;
-}
-
-.info-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .request-form {
@@ -423,8 +380,8 @@
         grid-template-columns: 1fr;
     }
 
-    .brands-list {
-        grid-template-columns: repeat(3, 1fr);
+    .brands-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .messengers-grid .btn {

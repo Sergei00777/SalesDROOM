@@ -1,0 +1,56 @@
+flask_autosalon/
+│
+├── app.py                          # Основной Flask-приложение
+├── config.py                       # Настройки: SECRET_KEY, DATABASE_URI, etc.
+├── requirements.txt                # pip freeze > requirements.txt
+│
+├── models/
+│   └── database.py                 # Модели: Car, Admin, SellRequest
+│
+├── routes/
+│   ├── main.py                     # /, /about, /contacts
+│   ├── cars.py                     # /cars, /car/<id>
+│   ├── sell.py                     # /sell, /sell/buyout, /sell/exchange, /sell/commission
+│   ├── credit.py                   # /credit
+│   └── admin.py                    # /admin/login, /admin/dashboard, CRUD
+│
+├── static/
+│   ├── css/
+│   │   └── style.css               # Общий стиль + адаптив
+│   ├── js/
+│   │   └── script.js               # Калькулятор кредита, поведение меню
+│   └── images/
+│       ├── logo.png                # Логотип компании
+│       ├── social/                 # Иконки соцсетей: tg.png, wa.png, ig.png
+│       └── cars/                   # Фото автомобилей (загружаются сюда)
+│
+├── templates/
+│   ├── base.html                   # Базовый шаблон: меню, подвал, стили
+│   │
+│   ├── index.html                  # Главная страница
+│   │
+│   ├── cars/
+│   │   ├── cars.html               # Список авто
+│   │   └── car_detail.html         # Детали авто
+│   │
+│   ├── sell/
+│   │   ├── sell.html               # Главная страница "Продать авто" (обзор)
+│   │   ├── sell_buyout.html        # Форма выкупа
+│   │   ├── sell_exchange.html      # Форма обмена
+│   │   └── sell_commission.html    # Форма на комиссию
+│   │
+│   ├── credit.html                 # Страница автокредита
+│   ├── about.html                  # О компании
+│   ├── contacts.html               # Контакты
+│   │
+│   └── admin/
+│       ├── login.html              # Форма входа
+│       ├── dashboard.html          # Главная админки
+│       ├── car_form.html           # Форма добавления/редактирования авто
+│       └── requests.html           # Просмотр заявок (с фильтрами)
+│
+├── instance/
+│   └── autosalon.db                # SQLite-база данных (генерируется автоматически)
+│
+└── uploads/                        # (опционально) для загрузки фото с формы комиссии
+    └── commission_photos/
